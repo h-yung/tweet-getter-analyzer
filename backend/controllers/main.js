@@ -5,20 +5,16 @@ const options = {
   method: "get",
   headers: {
     "User-Agent": "v2UserTweetsJS", //replace
-    authorization: `Bearer ${bearerToken}`, // it’s either (1 value) Bearer token, or a consumer key & secret and access token & secret
+    authorization: `Bearer ${bearerToken}`,
   },
 };
 
-// const getPage = require("../config/twitterAPI");
-
-// authentication by bearer token is not yet handled
 export const mainController = {
   getIndex: async (request, response) => {
     //getting tweet timeline by user ID
-    const username = request.params.username;
-    console.log(username);
     try {
       //first look up userID
+      const username = request.params.username;
       const userLookup_URL = `https://api.twitter.com/2/users/by/username/${username}`;
       const first = await fetch(userLookup_URL, options);
       const user = await first.json();
