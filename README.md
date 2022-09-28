@@ -1,8 +1,6 @@
 # Tester
 
 Twitter Timeline API.
-Builds on [sample code](https://github.com/twitterdev/Twitter-API-v2-sample-code).
-
 Retrieve latest tweets of public figures and analyze sentiment.
 
 ## Setup
