@@ -4,6 +4,6 @@ const router = express.Router();
 const mainController = require("../controllers/main");
 // const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-router.get("/", mainController.getIndex);
+router.get("/:tID", mainController.getIndex);
 
 module.exports = router;

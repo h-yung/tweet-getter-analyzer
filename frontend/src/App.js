@@ -1,13 +1,22 @@
-import { useState } from 'react';
-import { isEmpty } from './utils/validateInput';
+import { useState } from "react";
+import { isEmpty } from "./utils/validateInput";
 
 function App() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(""); //currently id
 
-  const getRecent = (e)=>{
+  const getRecent = async (e) => {
     e.preventDefault();
     //api call here
-  }
+    try {
+      console.log("trying");
+      const options = {};
+      const response = await fetch(`/${username}`);
+      const data = await response.json();
+      // console.log(data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="App">
@@ -16,30 +25,25 @@ function App() {
         <span>Tweet getter from user timeline.</span>
       </header>
       <div>
-        <form
-          onSubmit={(e)=>getRecent(e)}
-        >
+        <form onSubmit={(e) => getRecent(e)}>
           <label>
             User name:
             <input
-              type='text'
-              onChange={(e)=>setUsername(e.target.value)}
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
-            <button
-              disabled={isEmpty(username)}
-            >
-              Get tweets
-            </button>
+            <button disabled={isEmpty(username)}>Get tweets</button>
             {isEmpty(username) && <span>Enter a username</span>}
           </label>
         </form>
-        <button 
-          type="button"
-          onClick={()=>setUsername('')}
-        >
+        <button type="button" onClick={() => setUsername("")}>
           Clear
         </button>
-        <h3>Placeholder: specify where JSON is written in local file system? Clear + Save buttons?</h3>
+        <h3>
+          Placeholder: specify where JSON is written in local file system? Clear
+          + Save buttons?
+        </h3>
       </div>
       <main>
         <h2>Tweets</h2>
@@ -47,7 +51,6 @@ function App() {
       <footer>
         <p>Made by LCM.</p>
       </footer>
-
     </div>
   );
 }
