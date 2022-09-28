@@ -7,6 +7,10 @@ Retrieve latest tweets of public figures and analyze sentiment.
 
 ## Setup
 
+Sending requests to server and then Twitter to keep secrets safe. Not sure this is the best approach.
+
+- [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case).
+
 **Dev only**
 
 1. npm install your: prettier pretty-quick husky
@@ -19,4 +23,5 @@ Postman
 
 ## Current status
 
-- [x] Successful Postman test of API, need to set up server.
+- [x] Successful Postman test of API (Twitter API v2), need to set up server.
+- [ ] Make successful server-side req to Twitter API (Postman -> server -> API).

@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { isEmpty } from "./utils/validateInput";
+import { getTweets } from "./api/twitter";
 
 function App() {
   const [username, setUsername] = useState(""); //currently id
 
   const getRecent = async (e) => {
     e.preventDefault();
-    //api call here
+    getTweets(username);
     try {
       console.log("trying");
       const options = {};
-      const response = await fetch(`/${username}`);
+      const response = await fetch(`http://localhost:3001/${username}`);
       const data = await response.json();
       // console.log(data)
     } catch (err) {
