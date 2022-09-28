@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 // const authController = require("../controllers/auth");
-const mainController = require("../controllers/main");
+import { mainController } from "../controllers/main.js"; //the file ext ".js" is needed for successful import
 // const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-router.get("/:tID", mainController.getIndex);
+export const mainRoutes = router.get("/:username", mainController.getIndex);
 
-module.exports = router;
+// module.exports = router;

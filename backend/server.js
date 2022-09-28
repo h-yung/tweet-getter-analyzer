@@ -1,13 +1,18 @@
-const express = require("express");
+// const express = require("express");
+// const app = express();
+// const cors = require("cors");
+// const fetch = require("node-fetch");
+import express from "express";
 const app = express();
-const cors = require("cors");
+import cors from "cors";
 
-require("dotenv").config({ path: "./config/.env" });
+import dotenv from "dotenv";
+dotenv.config({ path: "./config/.env" });
 // const path =  __dirname +'/views/';
 
 app.use(cors());
 
-// const mainRoutes = require('./routes/main');
+import { mainRoutes } from "./routes/main.js";
 
 // const connectDB = require('./config/database');
 // connectDB()
@@ -16,7 +21,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.use('/', mainRoutes)
+app.use("/", mainRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log("Server is running one ahead");
