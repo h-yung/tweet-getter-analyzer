@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { isEmpty } from "./utils/validateInput";
 import { getTweets } from "./api/twitter";
 import { sampleTweet } from "./api/sample";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Notice from "./components/Notice";
+import Analysis from "./components/Analysis";
 
 function App() {
   const [username, setUsername] = useState(""); //currently id
@@ -12,7 +13,9 @@ function App() {
 
   const getRecent = async (e) => {
     e.preventDefault();
-    setTweets(getTweets(username));
+    const newTweets = await getTweets(username);
+    console.log(newTweets);
+    setTweets(newTweets);
   };
 
   return (
@@ -45,26 +48,33 @@ function App() {
           </h3> */}
         </div>
       </header>
-      {tweets && (
+      {tweets.data ? (
         <main>
+          <h2>Sentiment analysis</h2>
+          <Analysis />
           <h2>
-            Tweets from last seven days to current time{" "}
-            {new Date().toLocaleTimeString()}
+            <span className="Tweet__count">{tweets.data.length}</span> Tweets
+            over the last seven days to current local time{" "}
+            {new Date().toGMTString()}
           </h2>
-          <ul>
+          <ol>
             {tweets.data
               .filter((tweet) => tweet.lang === "en")
               .map(({ id, text, created_at, public_metrics }) => (
-                <li key={id}>
+                <li key={id} className="Tweet_single">
                   <span>{text}</span>
                   <ul className="Tweet_metadata">
-                    <li>{created_at}</li>
-                    <li>{public_metrics.quote_count}</li>
-                    <li>{public_metrics.retweet_count}</li>
+                    <li>Date created: {new Date(created_at).toGMTString()}</li>
+                    <li>Quoted {public_metrics.quote_count}x</li>
+                    <li>Retweeted {public_metrics.retweet_count}x</li>
                   </ul>
                 </li>
               ))}
-          </ul>
+          </ol>
+        </main>
+      ) : (
+        <main>
+          <span>No tweets found in the given timeframe.</span>
         </main>
       )}
       <footer>

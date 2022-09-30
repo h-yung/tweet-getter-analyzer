@@ -2,10 +2,23 @@
 
 Twitter Timeline API.
 Retrieve latest tweets of public figures and analyze sentiment.
+The sentiment analysis bit is WIP... planning to use TensorFlow.
+
+## Run
+
+0. Server not yet deployed, so you will need environment variables by setting up a project and app on the Twitter Developer Platform. Ultimately, you need a **bearer token** to pass for authorization.
+
+Start the server in one terminal:
+
+1. `cd backend`, `npm install`, then `npm start`
+
+Start the web app in a second terminal:
+
+1. `cd frontend`, `npm install`, `npm start`
 
 ## Setup
 
-Sending requests to server and then Twitter to keep secrets safe. Not sure this is the best approach.
+Routes requests via server to Twitter.
 
 - [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case).
 
