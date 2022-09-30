@@ -22,4 +22,12 @@ Postman
 ## Current status
 
 - [x] Successful Postman test of API (Twitter API v2), need to set up server.
-- [ ] Make successful server-side req to Twitter API (Postman -> server -> API).
+- [x] Make successful server-side req to Twitter API (Postman -> server -> API). A long struggle later, it turns out the env vars were not actually being found/recognized server-side. Trimmed dependencies back down and imported dotenv for the main controller instead.
+- Brief digression into hosting solution/search. Fly.io did not deploy properly (something to do with husky in the errors)?
+- [ ] Fix some formatting/width styling wonkiness.
+
+## Resources
+
+[Interesting to see how sentiment analysis struggles with sarcasm](https://www.csc2.ncsu.edu/faculty/healey/tweet_viz/)
+
+[Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/)
