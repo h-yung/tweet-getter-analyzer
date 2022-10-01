@@ -8,7 +8,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 
 ![tweet_getter_r2](https://user-images.githubusercontent.com/102257735/193385866-40aface9-0d46-4344-b2ad-ad373de5065f.png)
 
-(I forgot I was going to try using a CSS/component framework here.)
+(I forgot I was going to try using a CSS framework/component library here.)
 
 
 ## Run
