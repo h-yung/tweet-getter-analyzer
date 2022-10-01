@@ -8,10 +8,10 @@ const HOSTED_URLS = {
     "https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json",
 };
 
-const LOCAL_URLS = {
-  model: "./resources/model.json",
-  metadata: "./resources/metadata.json",
-};
+// const LOCAL_URLS = {
+//   model: "./resources/model.json",
+//   metadata: "./resources/metadata.json",
+// };
 
 import * as tf from "@tensorflow/tfjs";
 

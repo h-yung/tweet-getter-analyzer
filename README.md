@@ -1,10 +1,10 @@
 # Tweet getter & analyzer
 
-Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api). Requests are routed via a server so as to protect tokens/keys/secrets.
-
-...The sentiment analysis bit is WIP - planning to use TensorFlow.
+Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (I know, it's not axios!). Front end built with React.
+
+I forgot I was going to try using a CSS/component framework here.
 
 ![tweet_getter_r1](https://user-images.githubusercontent.com/102257735/193356993-c6bdc5f6-6198-4c01-9f09-974d65402634.png)
 
@@ -26,11 +26,12 @@ Start the web app in a second terminal:
 - [x] Make successful server-side req to Twitter API (Postman -> server -> API). A long struggle later, it turns out the env vars were not actually being found/recognized server-side. Trimmed dependencies back down and imported dotenv for the main controller instead.
 - Brief digression into hosting solution/search. Fly.io did not deploy properly (something to do with husky in the errors)?
 - [x] Fix some formatting/width styling wonkiness.
-- [ ] Finish sentiment analysis piece.
-  - Fix CORS issue with SA temp.
+- [x] Finish sentiment analysis piece.
+  - Fix CORS issue with SA temp: This disappeared just as suddenly as it occurred.
   - Rewrite for text array and passing tweets array.
-- [ ] Format analysis outputs.
+- [x] Format analysis outputs.
 - [ ] Figure out deployment.
+- [ ] Make analysis output more visual.
 
 ## Setup notes for development
 
@@ -48,4 +49,4 @@ Start the web app in a second terminal:
 
 - [Interesting to see how sentiment analysis struggles with sarcasm](https://www.csc2.ncsu.edu/faculty/healey/tweet_viz/)
 - [TensorFlow sentiment model](https://github.com/tensorflow/tfjs-examples/tree/master/sentiment)
-- [Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/)
+- [Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/), re: sentiment threshold values.
