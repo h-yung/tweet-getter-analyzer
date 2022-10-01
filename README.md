@@ -1,12 +1,13 @@
 # Tweet getter & analyzer
 
-Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
+Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model).
 
-**Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (I know, it's not axios!). Front end built with React.
+**Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React.
 
-I forgot I was going to try using a CSS/component framework here.
+![tweet_getter_r2](https://user-images.githubusercontent.com/102257735/193385866-40aface9-0d46-4344-b2ad-ad373de5065f.png)
 
-![tweet_getter_r1](https://user-images.githubusercontent.com/102257735/193356993-c6bdc5f6-6198-4c01-9f09-974d65402634.png)
+(I forgot I was going to try using a CSS/component framework here.)
+
 
 ## Run
 
@@ -40,7 +41,7 @@ Start the web app in a second terminal:
 3. pretty-quick: unlike what the docs say, you need `npx` in the pre-commit hook for it to run properly using husky: `npx pretty-quick --staged`
 4. Remember to set up authorization for set of searches (to override) or individually under "auth" even if you have a saved environment selected.
 
-- [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case).
+- [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case) and VS Code's helpful suggestions keep leaving it out (leading to errors).
 - TensorFlow: evidently "TypeError: forwardFunc is not a function" indicates some version incompatibility between model APIs and the core tf code.
 - ["Platform node has already been set. Overwriting the platform with…cpu backend was already registered"](https://discuss.tensorflow.org/t/platform-node-has-already-been-set-overwriting-the-platform-with-cpu-backend-was-already-registered/4978)
 - Tinkering too long = CORS problems start up again? ....
