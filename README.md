@@ -1,4 +1,4 @@
-# Tweet getter & analyzer
+# Tweet sentiment analyzer
 
 Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. 
 
