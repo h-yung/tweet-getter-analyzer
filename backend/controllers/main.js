@@ -1,7 +1,6 @@
 import fetch from "node-fetch";
 import dotenv from "dotenv"; //needed here for invoking env vars
 dotenv.config({ path: "./config/.env" });
-// import { checkToxicity } from "../sentiment/tensorflow-toxicity.js";
 import { predictor } from "../sentiment/tensorflow.js";
 
 const bearerToken = process.env.BEARER_TOKEN;
@@ -41,7 +40,6 @@ export const mainController = {
     }
   },
   postAnalyze: (req, res) => {
-    //sample tweet (tweets.data[2]) - replace with tweets in array from req.body
     const { tweetSet } = req.body;
     const tweetTexts = tweetSet.data;
 
@@ -51,7 +49,6 @@ export const mainController = {
         score: predictor.predict(tweet.text).score,
       }));
 
-      //either want to avg scores % (overall week), or tag indiv tweets for sentiment, or sort based on threshold for output.
       res.send(scoredTweets);
     } catch (err) {
       console.log(err);
