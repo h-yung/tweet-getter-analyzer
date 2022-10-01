@@ -144,6 +144,9 @@ main {
 .outcome__pos {
   color: var(--color-accent);
 }
+.outcome__neut {
+  color: var(--color-darker);
+}
 
 .mark__neg {
   border-left: 5px solid var(--color-darkest);

@@ -64,7 +64,7 @@ function App() {
           <Analysis scoredData={scoredData} />
           <h2 className="summary">
             <span className="Tweet__count">{tweets.data.length}</span> Tweets*
-            over the last seven days to current local time{" "}
+            over the last 30 days to current local time{" "}
             {new Date().toGMTString()}
           </h2>
           <ol>

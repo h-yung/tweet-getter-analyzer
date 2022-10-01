@@ -22,11 +22,11 @@ export const mainController = {
       const user = await first.json();
       const userID = user.data.id;
 
-      //pull Tweets from the past 7 days, max 50?
+      //pull Tweets from the past 30 days, max 50?
       // const count = 50;
-      const sevenDaysAgo = new Date(Date.now() - 604800000).toISOString();
+      const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
       const endTime = new Date().toISOString();
-      const getTweets_URL = `https://api.twitter.com/2/users/${userID}/tweets?start_time=${sevenDaysAgo}&end_time=${endTime}&tweet.fields=text,id,created_at,geo,public_metrics,lang`;
+      const getTweets_URL = `https://api.twitter.com/2/users/${userID}/tweets?start_time=${thirtyDaysAgo}&end_time=${endTime}&tweet.fields=text,id,created_at,geo,public_metrics,lang`;
 
       const second = await fetch(getTweets_URL, options);
       const tweets = await second.json();

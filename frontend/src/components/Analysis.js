@@ -14,7 +14,7 @@ const Analysis = ({ scoredData }) => {
                 ? "outcome__negative"
                 : avg.sentiment === "positive"
                 ? "outcome__pos"
-                : ""
+                : "outcome__neut"
             }`}
           >
             {avg.sentiment}
