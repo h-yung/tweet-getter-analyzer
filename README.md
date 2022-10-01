@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-Start the web app in a second terminal
+Start the web app in a second terminal:
 
 ```
 cd frontend
