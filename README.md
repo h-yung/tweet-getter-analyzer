@@ -68,6 +68,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 - [Interesting to see how sentiment analysis struggles with sarcasm](https://www.csc2.ncsu.edu/faculty/healey/tweet_viz/)
 - [TensorFlow sentiment model](https://github.com/tensorflow/tfjs-examples/tree/master/sentiment)
 - [Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/), re: sentiment threshold values.
+- node-fetch in browser under the hood for these proxies: [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch), [cross-fetch](https://github.com/lquixada/cross-fetch#why-not-isomorphic-fetch). I like the ES6 module import syntax more as well.
 
 ## Other slow-moving projects
 **Brute-force pangram**: https://github.com/h-yung/pangram
