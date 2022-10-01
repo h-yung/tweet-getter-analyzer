@@ -57,9 +57,7 @@ function App() {
         </div>
       </header>
       {!scoredData ? (
-        <main>
-          <span>No tweets found in the given timeframe.</span>
-        </main>
+        <main>{username ? <span>No tweets found.</span> : ""}</main>
       ) : (
         <main>
           <h2>Overall Sentiment</h2>
