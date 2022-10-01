@@ -13,7 +13,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 
 ## Run
 
-Not yet deployed, so you will need environment variables by setting up a project and app on the Twitter Developer Platform. Ultimately, you need a **bearer token** to pass for authorization.
+Not yet deployed, so you will need to set up a project and app on the Twitter Developer Platform and add a **bearer token** as an environment variable for authorization.
 
 Start the server in one terminal:
 
