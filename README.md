@@ -1,12 +1,14 @@
 # Tweet getter & analyzer
 
-Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model).
+Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. 
+
+It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React.
 
 ![tweet_getter_r2](https://user-images.githubusercontent.com/102257735/193385866-40aface9-0d46-4344-b2ad-ad373de5065f.png)
 
-(I forgot I was going to try using a CSS/component framework here.)
+(I forgot I was going to try using a CSS framework/component library here.)
 
 
 ## Run
@@ -15,11 +17,19 @@ Not yet deployed, so you will need environment variables by setting up a project
 
 Start the server in one terminal:
 
-1. `cd backend`, `npm install`, then `npm start`
+```
+cd backend
+npm install
+npm start
+```
 
 Start the web app in a second terminal:
 
-1. `cd frontend`, `npm install`, `npm start`
+```
+cd frontend
+npm install
+npm start
+```
 
 ## Progress
 
