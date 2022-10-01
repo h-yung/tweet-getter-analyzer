@@ -4,16 +4,23 @@ import { getTweets } from "./api/twitter";
 import { getEngOnly } from "./utils/report";
 import { getAnalysis } from "./api/sentiment";
 import { ratedEach } from "./utils/report";
+
+// import { filteredBySentiment } from "./utils/sortAndFilterLogic";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Notice from "./components/Notice";
 import Analysis from "./components/Analysis";
+import SortAndFilter from "./components/SortAndFilter";
 
 function App() {
   const [username, setUsername] = useState(""); //currently id
   const [tweets, setTweets] = useState(""); //cannot provide as empty array
 
   const [scoredData, setScoredData] = useState("");
+  const [sortCat, setSortCat] = useState("created_at");
+
+  // const [sentiment, setSentiment] = useState('');
 
   const getRecent = async (e) => {
     e.preventDefault();
@@ -69,6 +76,12 @@ function App() {
         <main>
           <h2>Overall Sentiment</h2>
           <Analysis scoredData={scoredData} />
+          <SortAndFilter
+            sortCat={sortCat}
+            setSortCat={setSortCat}
+            scoredData={scoredData}
+            setScoredData={setScoredData}
+          />
           <h2 className="summary">
             <span className="Tweet__count">{scoredData.length}</span> Tweets*
             over the last 30 days to current local time{" "}
@@ -100,7 +113,10 @@ function App() {
         </main>
       )}
       <footer>
-        <p>*Only English-language Tweets are included.</p>
+        <p>
+          *Only English-language Tweets are included. Notice some of the strange
+          sentiment assessments.
+        </p>
         <p>
           LCM |{" "}
           <a href="https://github.com/h-yung/tweet-getter-analyzer">

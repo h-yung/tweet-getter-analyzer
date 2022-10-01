@@ -1,13 +1,12 @@
 # Tweet sentiment analyzer
 
-Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. 
+Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React.
 
 ![tweet_getter_r2](https://user-images.githubusercontent.com/102257735/193385866-40aface9-0d46-4344-b2ad-ad373de5065f.png)
 
 (I forgot I was going to try using a CSS framework/component library here.)
-
 
 ## Run
 
@@ -30,10 +29,12 @@ npm start
 ```
 
 ## Optimizations
+
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
+
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
-   - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
-   - Of course, this also assumes they tweet about relevant topics generally and are eyeballed by people already concerned with such topics (a pleasant "Happy holiday" or "On this day" is not nearly as relevant to 100% audience/followers as a note on a broader political situation, or similarly, a local holiday remark might drive greater interest and engagement from local audience that could overshadow decreased interest abroad... etc.)
+  - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
+  - Of course, this also assumes they tweet about relevant topics generally and are eyeballed by people already concerned with such topics (a pleasant "Happy holiday" or "On this day" is not nearly as relevant to 100% audience/followers as a note on a broader political situation, or similarly, a local holiday remark might drive greater interest and engagement from local audience that could overshadow decreased interest abroad... etc.)
 - Update model/thresholds... A more govt/politics/international baseline model? Most resources along these lines will be in Python, so another incentive to keep learning.
 
 ## Progress
@@ -45,6 +46,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 - [x] Finish sentiment analysis piece.
   - Fix CORS issue with SA temp: This disappeared just as suddenly as it occurred.
   - Rewrite for text array and passing tweets array.
+- [ ] Fix sorting (currently a cheap workaround).
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
 - [ ] Make analysis output more visual.
@@ -57,6 +59,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 4. Remember to set up authorization for set of searches (to override) or individually under "auth" even if you have a saved environment selected.
 
 **Observations**
+
 - [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case) and VS Code's helpful suggestions keep leaving it out (leading to errors).
 - TensorFlow: evidently "TypeError: forwardFunc is not a function" indicates some version incompatibility between model APIs and the core tf code.
 - ["Platform node has already been set. Overwriting the platform with…cpu backend was already registered"](https://discuss.tensorflow.org/t/platform-node-has-already-been-set-overwriting-the-platform-with-cpu-backend-was-already-registered/4978)
@@ -71,4 +74,5 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 - node-fetch in browser under the hood for these proxies: [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch), [cross-fetch](https://github.com/lquixada/cross-fetch#why-not-isomorphic-fetch). I like the ES6 module import syntax more as well.
 
 ## Other slow-moving projects
+
 **Brute-force pangram**: https://github.com/h-yung/pangram
