@@ -8,16 +8,25 @@ const Analysis = ({ scoredData }) => {
     <div className="Analysis">
       {scoredData && (
         <>
-          <p className="subtitle">Generally</p>
-          <span className="outcome">{avg.sentiment}</span>
-          <span>Score: {avg.avg}</span>
+          <span
+            className={`outcome ${
+              avg.sentiment === "negative"
+                ? "outcome__negative"
+                : avg.sentiment === "positive"
+                ? "outcome__pos"
+                : ""
+            }`}
+          >
+            {avg.sentiment}
+          </span>
         </>
       )}
-      <ul>
+      <ul className="outcome__percents">
         <li>{percPos}% positive</li>
         <li>{percNeutral}% neutral</li>
         <li>{percNeg}% negative</li>
       </ul>
+      <span>average score: {avg.avg}</span>
     </div>
   );
 };

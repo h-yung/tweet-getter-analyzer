@@ -1,7 +1,8 @@
 :root {
   --color-accent: rgb(158, 5, 107);
   --color-primary: aliceblue;
-  --color-darker: rgb(220, 233, 246);
+  --color-darker: rgb(70, 120, 170);
+  --color-darkest: rgb(49, 46, 46);
 }
 
 html {
@@ -21,6 +22,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  text-transform: lowercase;
+  /* letter-spacing: 0.2em; */
 }
 
 h2 {
@@ -50,9 +56,14 @@ label > input {
 }
 
 input {
-  background: var(--color-darker);
-  border: lightgray;
+  background: var(--color-primary);
+  border: none;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.185);
   padding: 0.5rem;
+}
+
+button {
+  margin-left: 0.5rem;
 }
 
 ol {
@@ -100,9 +111,13 @@ main {
   display: flex;
 }
 
+.summary {
+  margin: 2rem;
+}
+
 .Tweet_single {
   margin-bottom: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   background-color: var(--color-primary);
 }
 
@@ -111,15 +126,33 @@ main {
   font-size: 2em;
 }
 
-.subtitle {
-  font-style: italic;
-}
-
 .outcome {
-  color: var(--color-accent);
   font-weight: bold;
   font-size: 2em;
-  margin-bottom: 1rem;
+  margin: 1rem;
+}
+
+.outcome__percents {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.outcome__negative {
+  color: var(--color-darkest);
+}
+.outcome__pos {
+  color: var(--color-accent);
+}
+
+.mark__neg {
+  border-left: 5px solid var(--color-darkest);
+}
+.mark__neut {
+  border-left: 5px solid var(--color-darker);
+}
+.mark__pos {
+  border-left: 5px solid var(--color-accent);
 }
 
 .Tweet_metadata {
@@ -153,6 +186,9 @@ main {
 
 footer {
   font-size: smaller;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 758px) {
@@ -166,6 +202,9 @@ footer {
   .toolbox {
     border-left: none;
     border-top: 2px solid lightgrey;
+    margin-left: 0;
+  }
+  button {
     margin-left: 0;
   }
 }
@@ -184,6 +223,7 @@ footer {
   label > input {
     display: block;
     margin: 0.5rem 0;
+    text-align: center;
   }
   button {
     width: 100%;
