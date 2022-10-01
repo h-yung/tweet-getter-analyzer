@@ -17,11 +17,11 @@ Not yet deployed, so you will need environment variables by setting up a project
 
 Start the server in one terminal:
 
-1. `cd backend`, `npm install`, then `npm start`
+`cd backend`, `npm install`, then `npm start`
 
 Start the web app in a second terminal:
 
-1. `cd frontend`, `npm install`, `npm start`
+`cd frontend`, `npm install`, `npm start`
 
 ## Progress
 
