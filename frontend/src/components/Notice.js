@@ -1,10 +1,7 @@
 const Notice = () => {
   return (
     <div className="notice">
-      <span>
-        *Button is disabled until a username is provided. Displays Tweets in
-        English language only.
-      </span>
+      <span>*Button is disabled until a username is provided.</span>
     </div>
   );
 };

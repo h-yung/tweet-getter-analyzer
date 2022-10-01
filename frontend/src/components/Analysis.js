@@ -1,7 +1,7 @@
-const Analysis = () => {
+const Analysis = ({ sentiment }) => {
   return (
     <div className="Analysis">
-      <span>Placeholder</span>
+      <span>Placeholder score: {sentiment.score}</span>
     </div>
   );
 };

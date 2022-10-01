@@ -4,6 +4,7 @@ const router = express.Router();
 import { mainController } from "../controllers/main.js"; //the file ext ".js" is needed for successful import
 // const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-export const mainRoutes = router.get("/:username", mainController.getIndex);
+router.get("/user/:username", mainController.getIndex);
+router.post("/analyze", mainController.postAnalyze);
 
-// module.exports = router;
+export const mainRoutes = router;

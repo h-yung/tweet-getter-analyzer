@@ -56,3 +56,35 @@ export const sampleTweet = {
     oldest_id: "1574340884338024448",
   },
 };
+
+//output of checkToxicity (predictions, an array):
+/*         
+'predictions' is an array of objects, one for each prediction head, that contains the raw probabilities for each input along with the final prediction in `match` (either `true` or `false`). If neither prediction exceeds the threshold, `match` is `null`.
+*/
+const toxicityRating = [
+  {
+    label: "identity_attack",
+    results: [
+      {
+        probabilities: [0.9659664034843445, 0.03403361141681671],
+        match: false,
+      },
+    ],
+  },
+  {
+    label: "insult",
+    results: [
+      {
+        probabilities: [0.08124706149101257, 0.9187529683113098],
+        match: true,
+      },
+    ],
+  },
+  //etc
+];
+
+//returned obj from sentiment analysis, where (0 - negative; 1 - positive)
+const singleRating = {
+  score: 0.900292992929292,
+  elapsed: 86.83709999918938, //time elapsed to return score; performance measure
+};
