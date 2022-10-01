@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { isEmpty } from "./utils/validateInput";
 import { getTweets } from "./api/twitter";
 import { getAnalysis } from "./api/sentiment";
+import { ratedEach } from "./utils/report";
 import { sampleTweet } from "./api/sample";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -13,22 +14,21 @@ function App() {
   const [tweets, setTweets] = useState(sampleTweet);
 
   //rewrite
-  const [sentiment, setSentiment] = useState("");
-  const [dodo, setDodo] = useState("");
+  const [scoredData, setScoredData] = useState("");
 
   const getRecent = async (e) => {
     e.preventDefault();
     const newTweets = await getTweets(username);
-    console.log(newTweets);
     setTweets(newTweets);
   };
 
-  const getAssessed = () => {
-    const scoredData = getAnalysis(tweets);
-    //to rewrite - scoredData is intended to be an array, but currently is a single object
-    //this is updating but not in the UI
-
-    setSentiment(scoredData);
+  //turn into a useEffect
+  const getAssessed = async () => {
+    //has scores
+    const newScoredData = await getAnalysis(tweets);
+    //has sentiment
+    const interpreted = ratedEach(newScoredData);
+    setScoredData(interpreted);
   };
 
   return (
@@ -60,13 +60,8 @@ function App() {
         <main>
           <h2>Sentiment analysis</h2>
           <button onClick={getAssessed}>SA Temp</button>
-          <button onClick={() => (!dodo ? setDodo("doddd") : setDodo(""))}>
-            Dodo button
-          </button>
+          {scoredData && <Analysis scoredData={scoredData} />}
 
-          <span>{sentiment.score}</span>
-          <span>{dodo}</span>
-          <Analysis sentiment={sentiment} />
           <h2>
             <span className="Tweet__count">{tweets.data.length}</span> Tweets
             over the last seven days to current local time{" "}

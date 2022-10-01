@@ -1,13 +1,12 @@
 //get sentiment analysis
-export const getAnalysis = async (textArray) => {
+export const getAnalysis = async (textObj) => {
   const options = {
     method: "post",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      tweetSet: [{ text: "example text" }],
-      // tweetSet: textArray.data
+      tweetSet: textObj,
     }),
   };
   // console.log(options)
@@ -15,6 +14,13 @@ export const getAnalysis = async (textArray) => {
     const response = await fetch(`http://localhost:3001/analyze`, options);
     const data = await response.json();
     return data;
+    //this returns:
+    /**
+    {
+      score: 0.900292992929292,
+      elapsed: 86.83709999918938
+    };
+     */
   } catch (err) {
     console.log(err);
   }

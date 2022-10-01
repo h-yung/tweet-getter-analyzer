@@ -1,5 +1,7 @@
 :root {
   --color-accent: rgb(158, 5, 107);
+  --color-primary: aliceblue;
+  --color-darker: rgb(220, 233, 246);
 }
 
 html {
@@ -48,9 +50,14 @@ label > input {
 }
 
 input {
-  background: rgb(220, 233, 246);
+  background: var(--color-darker);
   border: lightgray;
   padding: 0.5rem;
+}
+
+ol {
+  /* balance out left-side padding */
+  padding-right: 4rem;
 }
 
 /*****SECTIONS *****/
@@ -96,12 +103,23 @@ main {
 .Tweet_single {
   margin-bottom: 2rem;
   padding: 1rem;
-  background-color: aliceblue;
+  background-color: var(--color-primary);
 }
 
 .Tweet__count {
   color: var(--color-accent);
   font-size: 2em;
+}
+
+.subtitle {
+  font-style: italic;
+}
+
+.outcome {
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 1rem;
 }
 
 .Tweet_metadata {
@@ -114,12 +132,16 @@ main {
   font-weight: bold;
   line-height: 2em;
 }
-.Tweet_metadata > li {
-}
 
 header {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.Analysis {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -151,6 +173,7 @@ footer {
 @media screen and (max-width: 534px) {
   label {
     display: flex;
+    align-items: center;
   }
   label,
   form,

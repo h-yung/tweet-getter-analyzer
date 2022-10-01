@@ -88,3 +88,23 @@ const singleRating = {
   score: 0.900292992929292,
   elapsed: 86.83709999918938, //time elapsed to return score; performance measure
 };
+
+//scoredData is subtly different from tweet obj structure:
+const scoredData = [
+  {
+    text: "I appreciate the clear position of UN Secretary-General @antonioguterres on the criminal intention of RF to illegally annex more 🇺🇦 lands: such actions won't have any legal force, grossly violate the Purposes and Principles of the UN Charter and won't be recognized by the world.",
+    lang: "en",
+    edit_history_tweet_ids: ["1575537866058657792"],
+    id: "1575537866058657792",
+    public_metrics: {
+      retweet_count: 4155,
+      reply_count: 1217,
+      like_count: 27885,
+      quote_count: 146,
+    },
+    created_at: "2022-09-29T17:27:54.000Z",
+    score: 0.044423232132398, //appended
+    sentiment: "positive", //appended
+  },
+  //etc
+];
