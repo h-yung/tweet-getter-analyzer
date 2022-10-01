@@ -1,4 +1,4 @@
-# Tweet getter & analyzer
+# Tweet sentiment analyzer
 
 Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. 
 
@@ -13,7 +13,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 
 ## Run
 
-Not yet deployed, so you will need environment variables by setting up a project and app on the Twitter Developer Platform. Ultimately, you need a **bearer token** to pass for authorization.
+Not yet deployed, so you will need to set up a project and app on the Twitter Developer Platform and add a **bearer token** as an environment variable for authorization.
 
 Start the server in one terminal:
 
@@ -51,13 +51,18 @@ npm start
 3. pretty-quick: unlike what the docs say, you need `npx` in the pre-commit hook for it to run properly using husky: `npx pretty-quick --staged`
 4. Remember to set up authorization for set of searches (to override) or individually under "auth" even if you have a saved environment selected.
 
+**Observations**
 - [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case) and VS Code's helpful suggestions keep leaving it out (leading to errors).
 - TensorFlow: evidently "TypeError: forwardFunc is not a function" indicates some version incompatibility between model APIs and the core tf code.
 - ["Platform node has already been set. Overwriting the platform with…cpu backend was already registered"](https://discuss.tensorflow.org/t/platform-node-has-already-been-set-overwriting-the-platform-with-cpu-backend-was-already-registered/4978)
 - Tinkering too long = CORS problems start up again? ....
+- Would be good to finish learning Python!
 
 ## Resources and reference
 
 - [Interesting to see how sentiment analysis struggles with sarcasm](https://www.csc2.ncsu.edu/faculty/healey/tweet_viz/)
 - [TensorFlow sentiment model](https://github.com/tensorflow/tfjs-examples/tree/master/sentiment)
 - [Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/), re: sentiment threshold values.
+
+## Other slow-moving projects
+**Brute-force pangram**: https://github.com/h-yung/pangram
