@@ -1,7 +1,7 @@
 # Tweet getter & analyzer
 Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api). Requests are routed via a server so as to protect tokens/keys/secrets.
 
-...The sentiment analysis bit is WIP - planning to use TensorFlow.
+...The sentiment analysis bit is WIP - working with a pretrained TensorFlow model.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (I know, it's not axios!). Front end built with React.
 
