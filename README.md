@@ -34,7 +34,7 @@ npm start
 ## Optimizations
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
    - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
-- Update model/thresholds...
+- Update model/thresholds... A more govt/politics/international baseline model? 
 
 ## Progress
 
