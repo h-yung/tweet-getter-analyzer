@@ -22,19 +22,15 @@ export const mainController = {
       const user = await first.json();
       const userID = user.data.id;
 
-      //pull Tweets from the past 30 days, max 50?
-      // const count = 50;
-      const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
+      //pull Tweets from the past 30 days. If you don't specify maxcount, it returns only the 10 first.
+      const count = 100;
+      const thirtyDaysAgo = new Date(Date.now() - 90 * 86400000).toISOString();
       const endTime = new Date().toISOString();
-      const getTweets_URL = `https://api.twitter.com/2/users/${userID}/tweets?start_time=${thirtyDaysAgo}&end_time=${endTime}&tweet.fields=text,id,created_at,geo,public_metrics,lang`;
+      const getTweets_URL = `https://api.twitter.com/2/users/${userID}/tweets?start_time=${thirtyDaysAgo}&end_time=${endTime}&max_results=${count}&tweet.fields=text,id,created_at,geo,public_metrics,lang`;
 
       const second = await fetch(getTweets_URL, options);
       const tweets = await second.json();
-      const tweetsEngOnly = {
-        ...tweets,
-        data: [...tweets.data].filter((tweet) => tweet.lang === "en"),
-      };
-      response.send(tweetsEngOnly);
+      response.send(tweets);
     } catch (err) {
       console.log(err);
     }
@@ -42,6 +38,7 @@ export const mainController = {
   postAnalyze: (req, res) => {
     const { tweetSet } = req.body;
     const tweetTexts = tweetSet.data;
+    console.log(tweetTexts);
 
     try {
       const scoredTweets = tweetTexts.map((tweet) => ({

@@ -1,3 +1,11 @@
+//remove non-Eng data
+export const getEngOnly = (obj) => {
+  return {
+    ...obj,
+    data: [...obj.data].filter((tweet) => tweet.lang === "en"),
+  };
+};
+
 //provide thresholds positive, neutral, negative. Starting thresholds borrowed from Benson Ruan
 const giveVerdict = (score) => {
   if (score <= 0.33) {

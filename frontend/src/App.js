@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { isEmpty } from "./utils/validateInput";
 import { getTweets } from "./api/twitter";
+import { getEngOnly } from "./utils/report";
 import { getAnalysis } from "./api/sentiment";
 import { ratedEach } from "./utils/report";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,10 +21,16 @@ function App() {
     setTweets(newTweets);
   };
 
+  const clearAll = () => {
+    setUsername("");
+    setScoredData("");
+  };
+
   useEffect(() => {
     const getAssessed = async () => {
       //has scores
-      const newScoredData = await getAnalysis(tweets);
+      const tweetsEngOnly = getEngOnly(tweets);
+      const newScoredData = await getAnalysis(tweetsEngOnly);
       //has sentiment
       const interpreted = ratedEach(newScoredData);
       setScoredData(interpreted);
@@ -51,7 +58,7 @@ function App() {
               <button disabled={isEmpty(username)}>Get tweets</button>
             </label>
           </form>
-          <button type="button" onClick={() => setUsername("")}>
+          <button type="button" onClick={clearAll}>
             Clear
           </button>
         </div>
@@ -63,7 +70,7 @@ function App() {
           <h2>Overall Sentiment</h2>
           <Analysis scoredData={scoredData} />
           <h2 className="summary">
-            <span className="Tweet__count">{tweets.data.length}</span> Tweets*
+            <span className="Tweet__count">{scoredData.length}</span> Tweets*
             over the last 30 days to current local time{" "}
             {new Date().toGMTString()}
           </h2>
@@ -96,10 +103,7 @@ function App() {
         <p>*Only English-language Tweets are included.</p>
         <p>
           LCM |{" "}
-          <a
-            href="https://github.com/h-yung/tweet-getter-analyzer"
-            target="_blank"
-          >
+          <a href="https://github.com/h-yung/tweet-getter-analyzer">
             On GitHub
           </a>
         </p>
