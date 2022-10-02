@@ -1,12 +1,14 @@
 # Tweet sentiment analyzer
 
-Retrieve latest English-language tweets of public figures in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default).
+Retrieve latest English-language tweets of public figures in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). 
 
-This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
+This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets. 
 
-**Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React.
+**Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React, CanvasJS used for visualization.
 
-![tweet_getter_r3](https://user-images.githubusercontent.com/102257735/193434514-e2dd5856-73b4-4196-a1ac-58da67ec120a.png)
+**Current:**
+
+![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480844-9913a2d2-dccf-403d-9bb7-8caf88818d63.png)
 
 (I forgot I was going to try using a CSS framework/component library here.)
 
@@ -78,12 +80,11 @@ Other:
 - [x] Handle user search error: user not found or suspended.
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
-- [ ] Make analysis output more visual.
-  - [ ] Debug strange axes scales.
-  - [ ] Fix tooltip width.
+- [x] Make analysis output more visual. 
+  - [ ] Fix tooltip width. _Chart presets make this challenging; currently, tweet is moved to alert on click._
   - [x] Change shape of marker indicators
-- [ ] Refactor to use react router and make app more modular.
-- [ ] Debug display logic and chart wonkiness.
+- [x] Refactor to use react router and make app more modular. Could do more...
+- [ ] PRIORITY: Debug display logic and chart wonkiness. **This is more of the actual conversion for display.**
 - [x] Set up sample data (~30 posts or more) to avoid hitting API too much. **now obsolete**
 
 ## Setup notes for development
