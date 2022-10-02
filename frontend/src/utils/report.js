@@ -19,9 +19,9 @@ const giveVerdict = (score) => {
 
 //calc avg sentiment threshold; assumes array items each have key of "score": number
 export const getAvgScore = (array) => {
-  const avg = array.reduce((a, v) => a + v.score, 0) / array.length;
-  let sentiment = giveVerdict(avg);
-  return { avg, sentiment };
+  const avg = array.reduce((a, v) => a + v.score, 0) / array.length; //this number makes zero sense
+  // let sentiment = giveVerdict(avg);
+  return avg;
 };
 
 export const ratedEach = (array) => {
@@ -42,10 +42,34 @@ export const percentages = (array) => {
       countPositive++;
     }
   });
+  //overall sentiment is by freq
+  let inOrder = [countNegative, countNeutral, countPositive].sort(
+    (a, b) => a - b
+  ); //ascending. not Math.max because there could be equal count numbers
+
+  let overallSentiment = "";
+  if (countPositive === inOrder[inOrder.length - 1]) {
+    overallSentiment += "positive";
+  }
+  if (countNeutral === inOrder[inOrder.length - 1]) {
+    if (overallSentiment) {
+      overallSentiment += "/neutral";
+    } else {
+      overallSentiment += "neutral";
+    }
+  }
+  if (countNegative === inOrder[inOrder.length - 1]) {
+    if (overallSentiment) {
+      overallSentiment += "/negative";
+    } else {
+      overallSentiment += "negative";
+    }
+  }
 
   return {
     percNeg: parseInt((countNegative / array.length) * 100, 10),
     percNeutral: parseInt((countNeutral / array.length) * 100, 10),
     percPos: parseInt((countPositive / array.length) * 100, 10),
+    overallSentiment,
   };
 };

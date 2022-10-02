@@ -25,6 +25,11 @@ function App() {
   const getRecent = async (e) => {
     e.preventDefault();
     const newTweets = await getTweets(username);
+    if (newTweets.error) {
+      window.alert(newTweets.error);
+      clearAll();
+      return;
+    }
     setTweets(newTweets);
   };
 
@@ -115,7 +120,7 @@ function App() {
       <footer>
         <p>
           *Only English-language Tweets are included. Notice some of the strange
-          sentiment assessments.
+          sentiment assessments. Retweets ('RT') are currently included.
         </p>
         <p>
           LCM |{" "}

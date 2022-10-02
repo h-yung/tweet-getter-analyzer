@@ -51,6 +51,11 @@ button {
   margin-right: 0.5rem;
 }
 
+label {
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
 label > input {
   margin-left: 1rem;
 }
@@ -59,6 +64,7 @@ input {
   background: var(--color-primary);
   border: none;
   border-bottom: 2px solid rgba(128, 128, 128, 0.185);
+  border-radius: 0.5rem;
   padding: 0.5rem;
 }
 
@@ -69,6 +75,17 @@ button {
 ol {
   /* balance out left-side padding */
   padding-right: 4rem;
+}
+
+select {
+  background: none;
+  border: 1px solid var(--color-darker);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+option {
+  padding: 0.5rem;
+  background: var(--color-primary);
 }
 
 /*****SECTIONS *****/

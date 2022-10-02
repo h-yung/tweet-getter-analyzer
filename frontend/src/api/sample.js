@@ -7,6 +7,35 @@ export const userID = {
   },
 };
 
+//failed user lookup
+/**The app will not recognize a mispelt username if the username exists. However, it can return the following errors */
+const error_1 = {
+  errors: [
+    {
+      parameter: "username",
+      resource_id: "adfldf",
+      value: "adfldf",
+      detail: "User has been suspended: [adfldf].",
+      title: "Forbidden",
+      resource_type: "user",
+      type: "https://api.twitter.com/2/problems/resource-not-found",
+    },
+  ],
+};
+const error_2 = {
+  errors: [
+    {
+      value: "adfldfddddd",
+      detail: "Could not find user with username: [adfldfddddd].",
+      title: "Not Found Error",
+      resource_type: "user",
+      parameter: "username",
+      resource_id: "adfldfddddd",
+      type: "https://api.twitter.com/2/problems/resource-not-found",
+    },
+  ],
+};
+
 //shape of tweets returned
 export const sampleTweet = {
   data: [
