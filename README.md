@@ -1,10 +1,10 @@
 # Tweet sentiment analyzer
 
-Retrieve latest tweets of public figures and analyze sentiment. Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
+Retrieve latest tweets of public figures and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React.
 
-![tweet_getter_r2](https://user-images.githubusercontent.com/102257735/193385866-40aface9-0d46-4344-b2ad-ad373de5065f.png)
+![tweet_getter_r3](https://user-images.githubusercontent.com/102257735/193434514-e2dd5856-73b4-4196-a1ac-58da67ec120a.png)
 
 (I forgot I was going to try using a CSS framework/component library here.)
 
