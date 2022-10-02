@@ -83,6 +83,10 @@ select {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
+
+label > select {
+  margin-top: 1rem;
+}
 option {
   padding: 0.5rem;
   background: var(--color-primary);
@@ -126,6 +130,12 @@ main {
 }
 .toolbox__form {
   display: flex;
+}
+
+.label__sort {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .summary {

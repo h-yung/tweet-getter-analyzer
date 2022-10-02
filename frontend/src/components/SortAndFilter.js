@@ -27,15 +27,17 @@ function SortAndFilter({ sortCat, setSortCat, scoredData, setScoredData }) {
             <option value="negative">Negative</option>
         </select> */}
 
-      <label>Sort by</label>
-      <select
-        value={sortCat}
-        onChange={(e) => sortItem(e)} //change sortCat AND sort
-      >
-        <option value="created_at">Recency (default)</option>
-        <option value="retweet_count">Retweets</option>
-        <option value="quote_count">Quoted</option>
-      </select>
+      <label className="label__sort">
+        Sort by
+        <select
+          value={sortCat}
+          onChange={(e) => sortItem(e)} //change sortCat AND sort
+        >
+          <option value="created_at">Recency (default)</option>
+          <option value="retweet_count">Retweets</option>
+          <option value="quote_count">Quoted</option>
+        </select>
+      </label>
     </div>
   );
 }
