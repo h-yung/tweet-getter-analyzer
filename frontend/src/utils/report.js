@@ -25,6 +25,9 @@ export const getAvgScore = (array) => {
 };
 
 export const ratedEach = (array) => {
+  console.log(
+    array.map((item) => ({ ...item, sentiment: giveVerdict(item.score) }))
+  );
   return array.map((item) => ({ ...item, sentiment: giveVerdict(item.score) }));
 };
 

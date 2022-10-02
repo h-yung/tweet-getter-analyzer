@@ -45,7 +45,7 @@ export const mainController = {
   postAnalyze: (req, res) => {
     const { tweetSet } = req.body;
     const tweetTexts = tweetSet.data;
-    console.log(tweetTexts);
+    // console.log(tweetTexts);
 
     try {
       const scoredTweets = tweetTexts.map((tweet) => ({

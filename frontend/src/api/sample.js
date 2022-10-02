@@ -133,7 +133,7 @@ const scoredData = [
     },
     created_at: "2022-09-29T17:27:54.000Z",
     score: 0.044423232132398, //appended
-    sentiment: "positive", //appended
+    sentiment: "negative", //appended
   },
   //etc
 ];

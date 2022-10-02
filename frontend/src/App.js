@@ -5,6 +5,8 @@ import { getEngOnly } from "./utils/report";
 import { getAnalysis } from "./api/sentiment";
 import { ratedEach } from "./utils/report";
 
+import { username1, tweetSet_1 } from "./api/sample_extended";
+
 // import { filteredBySentiment } from "./utils/sortAndFilterLogic";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
