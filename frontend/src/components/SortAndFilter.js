@@ -2,10 +2,8 @@ import { sorted } from "../utils/sortAndFilterLogic";
 
 function SortAndFilter({ sortCat, setSortCat, scoredData, setScoredData }) {
   const sortItem = async (e) => {
-    //fix stale /async. currently a workaround
     const category = e.currentTarget.value;
     setSortCat(category);
-    // console.log(scoredData)
     const orderedData = sorted(category, scoredData);
     console.log("running");
     setScoredData(orderedData);
