@@ -36,11 +36,11 @@ npm start
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
 
-**Comparative cheer** (working title)
+**Comparative cheer** (working title) | **EDIT: v1 mostly done.**
 
 _draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
 
-- Visualization library TBD. Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
+- Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
 - legend showing unique marker matched to each username.
 - likely involving object consisting of { username: 'twitter handle', tweets: scoredData } where scoredData is the array currently rendered of the retrieved tweets.
 - need to filter out the pure RTs (indicated by text opener "RT")
