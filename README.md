@@ -37,7 +37,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 **Comparative cheer** (working title)
 _draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
 - Visualization library TBD. Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
-- unique color matched to each username.
+- legend showing unique marker matched to each username.
 - likely involving object consisting of { username: 'twitter handle', tweets: scoredData } where scoredData is the array currently rendered of the retrieved tweets.
 - need to filter out the pure RTs (indicated by text opener "RT")
 - 100% client side ops, no persisting data, for simplicity
@@ -78,6 +78,8 @@ Other:
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
 - [ ] Make analysis output more visual.
+- [ ] Refactor to use react router and make app more modular.
+- [ ] Set up sample data (~30 posts or more) to avoid hitting API too much. **this first**
 
 ## Setup notes for development
 
@@ -100,6 +102,7 @@ Other:
 - [TensorFlow sentiment model](https://github.com/tensorflow/tfjs-examples/tree/master/sentiment)
 - [Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/), re: sentiment threshold values.
 - node-fetch in browser under the hood for these proxies: [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch), [cross-fetch](https://github.com/lquixada/cross-fetch#why-not-isomorphic-fetch). I like the ES6 module import syntax more as well.
+- [canvas.js](https://canvasjs.com/react-charts/scatter-point-chart-custom-marker/) could work. Unique shapes can help with avoiding dependence solely on color for the visualization although I'm curious about accessibility of this approach overall. (The tooltip as well.)
 
 ## Other slow-moving projects
 
