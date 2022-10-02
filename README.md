@@ -51,6 +51,7 @@ _draft_: Allow users to save the set of tweets and username to an array that the
 - UI could/should include a list of the usernames included and in their assigned color code
 - UI should allow for removal of particular username (executed with splice)
 - this is a bit similar to the "compare school rankings" type function
+- Some people tweet multiple times per day - markers end up stacked on top of each other visually.
 
 Nice to haves
 
@@ -80,8 +81,10 @@ Other:
 - [ ] Make analysis output more visual.
   - [ ] Debug strange axes scales.
   - [ ] Fix tooltip width.
-- [ ] Refactor to use react router and make app more modular. **this second**
-- [ ] Set up sample data (~30 posts or more) to avoid hitting API too much. **this first**
+  - [x] Change shape of marker indicators
+- [ ] Refactor to use react router and make app more modular.
+- [ ] Debug display logic and chart wonkiness.
+- [x] Set up sample data (~30 posts or more) to avoid hitting API too much. **now obsolete**
 
 ## Setup notes for development
 
@@ -95,8 +98,7 @@ Other:
 - [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x#readme) for ...server-side HTTP reqs - but turns out this can [only be done with import](https://stackoverflow.com/questions/69081410/error-err-require-esm-require-of-es-module-not-supported) (everything must then be updated to import.. syntax)... so I am discovering why folks like axios so much. Remember the file extension must also be included (".js" in this case) and VS Code's helpful suggestions keep leaving it out (leading to errors).
 - TensorFlow: evidently "TypeError: forwardFunc is not a function" indicates some version incompatibility between model APIs and the core tf code.
 - ["Platform node has already been set. Overwriting the platform with…cpu backend was already registered"](https://discuss.tensorflow.org/t/platform-node-has-already-been-set-overwriting-the-platform-with-cpu-backend-was-already-registered/4978)
-- Tinkering too long = CORS problems start up again? ....
-- Would be good to finish learning Python!
+- Tinkering too long = CORS problems start up again? And disappear just as suddenly.
 - CanvasJS for React: If there is only 1 data series, it bewilderingly displays each point with a different color. If there are >=2 data series, each data series receives a consistent color treatment.
 
 ## Resources and reference
@@ -105,7 +107,7 @@ Other:
 - [TensorFlow sentiment model](https://github.com/tensorflow/tfjs-examples/tree/master/sentiment)
 - [Tensorflow.js Sentiment CNN model and walkthrough](https://towardsdatascience.com/twitter-sentiment-analysis-with-node-js-ae1ed8dd8fa7) - [Benson Ruan](https://github.com/bensonruan/), re: sentiment threshold values.
 - node-fetch in browser under the hood for these proxies: [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch), [cross-fetch](https://github.com/lquixada/cross-fetch#why-not-isomorphic-fetch). I like the ES6 module import syntax more as well.
-- [canvas.js](https://canvasjs.com/react-charts/scatter-point-chart-custom-marker/) could work. Unique shapes can help with avoiding dependence solely on color for the visualization although I'm curious about accessibility of this approach overall. (The tooltip as well.)
+- [canvas.js](https://canvasjs.com/react-charts/scatter-point-chart-custom-marker/) could work. Unique shapes can help with avoiding dependence solely on color for the visualization although I'm curious about accessibility of this approach overall. (The tooltip as well.) However, chart titles appear fuzzy/blurry.
 
 ## Other slow-moving projects
 

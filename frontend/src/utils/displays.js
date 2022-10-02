@@ -19,3 +19,23 @@ export function convertFrom30(refDate, arr) {
     ),
   }));
 }
+
+//each object in CanvasJS has the following shape:
+const chartObjPoint = {
+  x: 451,
+  y: 148,
+  dataPoint: { x: 27, y: 0.944423232132398, text: "Here tweet" }, //the text is added custom
+  dataSeries: {
+    type: "scatter",
+    name: "First",
+    markerType: "triangle" /**etc */,
+  },
+  dataPointIndex: 10,
+  dataSeriesIndex: 0,
+  chart: {
+    predefinedThemes: "etc",
+    theme: "light2",
+    _defaultsKey: "Chart",
+    //...
+  },
+};

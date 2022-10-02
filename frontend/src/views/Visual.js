@@ -2,22 +2,34 @@ import { NavLink } from "react-router-dom";
 import Chart from "../components/Chart";
 
 export default function Visual({ selected, setSelected, earliestDate }) {
+  const removeFromSet = (e) => {
+    const user = e.target.id;
+    console.log(`removing ${user}`);
+    const newSelected = selected.filter((acct) => !acct.username === user);
+    console.log(
+      newSelected.map((acct) => acct.username).join(", ") + " remain"
+    );
+    console.log(newSelected.length);
+    // setSelected(newSelected);
+  };
+
   return (
     <>
       <NavLink to="/" className="NavLink">
-        Go back
+        Return to tweet list
       </NavLink>
-      {selected && (
-        <button type="button" onClick={() => setSelected("")}>
-          Remove all sets
-        </button>
-      )}
       {!selected ? (
         <span>No data in the set.</span>
       ) : (
-        <div className="Chart__wrapper">
-          <Chart selected={selected} earliestDate={earliestDate} />
-        </div>
+        <>
+          <h1 className="Chart__title">Comparative sentiment, 30-day span</h1>
+
+          <Chart
+            selected={selected}
+            setSelected={setSelected}
+            earliestDate={earliestDate}
+          />
+        </>
       )}
     </>
   );

@@ -45,11 +45,17 @@ function App() {
   };
 
   //need to add validation
+  //prevent duplicates from adding
   const addToSet = () => {
     //if selected is empty at current point, we will take what "current time" (used to backtrack 30 days prior) is at time of first acct pull.
     if (!selected) {
       let currentDate = new Date();
       setEarliestDate(currentDate);
+    }
+    //prevent duplicates adding
+    else if (selected.some((acct) => acct.username === username)) {
+      console.log("already in set");
+      return;
     }
     const toInclude = { username: username, tweets: scoredData };
     const updatedSelected = [...selected, toInclude];

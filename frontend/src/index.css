@@ -55,6 +55,12 @@ button:hover {
   filter: opacity(0.6);
 }
 
+.ClickableNonButton {
+  background: none;
+  color: var(--color-darker);
+  border: 1px solid var(--color-darker);
+}
+
 label {
   font-weight: bold;
   margin: 2rem 0;
@@ -74,6 +80,17 @@ input {
 
 button {
   margin-left: 0.5rem;
+}
+
+.button__removeAll {
+  margin-bottom: 3rem;
+}
+
+.list__users {
+  list-style: none;
+  display: flex;
+  /* horizontal list */
+  padding-left: 0;
 }
 
 ol {
@@ -227,16 +244,20 @@ header {
   align-items: center;
 }
 
+.Chart__title {
+  text-align: center;
+}
 .Chart__wrapper {
   padding: 2rem;
   width: 100%;
-  position: relative;
-}
+  height: 478px;
+  /* quirk of low-res CanvasJS */
+  overflow: hidden;
 
-.canvasjs-chart-tooltip .Tooltip {
-  max-width: 70%;
-  word-wrap: break-word;
+  display: flex;
+  justify-content: center;
 }
+/* Chart styles within component function */
 
 main {
   display: flex;
