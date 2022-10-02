@@ -34,6 +34,31 @@ npm start
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
 
+**Comparative cheer** (working title)
+_draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
+- Visualization library TBD. Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
+- unique color matched to each username.
+- likely involving object consisting of { username: 'twitter handle', tweets: scoredData } where scoredData is the array currently rendered of the retrieved tweets.
+- need to filter out the pure RTs (indicated by text opener "RT")
+- 100% client side ops, no persisting data, for simplicity
+- UI: button to "save" user and data into the array
+- separate page appears? or just component within same overall? 
+  - maybe visualization module when enabled will hide the tweet list
+  - Using react router might end up simpler after all: 
+     - common to all: header with search term entry
+     - component: Nothing to show, conditional based on username
+     - component: Full tweet list of active /last searched username, can be cleared*
+     - component: visualization of sentiment vs. last 30 days of the saved users
+ *current draft approach does not allow removal of any users added for comparison. 
+ - UI could/should include a list of the usernames included and in their assigned color code
+ - UI should allow for removal of particular username (executed with splice)
+ - this is a bit similar to the "compare school rankings" type function
+ 
+Nice to haves
+- visual neutral threshold line indicator as well
+- tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
+
+Other:
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
   - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
   - Of course, this also assumes they tweet about relevant topics generally and are eyeballed by people already concerned with such topics (a pleasant "Happy holiday" or "On this day" is not nearly as relevant to 100% audience/followers as a note on a broader political situation, or similarly, a local holiday remark might drive greater interest and engagement from local audience that could overshadow decreased interest abroad... etc.)
