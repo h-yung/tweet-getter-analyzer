@@ -15,13 +15,6 @@ import Layout from "./views/Layout";
 import Home from "./views/Home";
 import Visual from "./views/Visual";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import Tweet from "./components/Tweet";
-import Notice from "./components/Notice";
-import Analysis from "./components/Analysis";
-import SortAndFilter from "./components/SortAndFilter";
-
 function App() {
   const [username, setUsername] = useState(username1); //replace
   const [tweets, setTweets] = useState(""); //cannot provide as empty array
@@ -29,7 +22,9 @@ function App() {
   const [scoredData, setScoredData] = useState(tweetSet_1); //replace
   const [sortCat, setSortCat] = useState("created_at");
 
-  const [selected, setSelected] = useState(""); //array to store usernames and tweetsets for visual
+  //for visual
+  const [earliestDate, setEarliestDate] = useState("");
+  const [selected, setSelected] = useState(""); //array to store usernames and tweetsets
 
   // const [sentiment, setSentiment] = useState('');
 
@@ -51,6 +46,11 @@ function App() {
 
   //need to add validation
   const addToSet = () => {
+    //if selected is empty at current point, we will take what "current time" (used to backtrack 30 days prior) is at time of first acct pull.
+    if (!selected) {
+      let currentDate = new Date();
+      setEarliestDate(currentDate);
+    }
     const toInclude = { username: username, tweets: scoredData };
     const updatedSelected = [...selected, toInclude];
     setSelected(updatedSelected);
@@ -94,73 +94,19 @@ function App() {
             />
           }
         />
-        <Route path="/visual" element={<Visual selected={selected} />} />
+        <Route
+          path="/visual"
+          element={
+            <Visual
+              selected={selected}
+              setSelected={setSelected}
+              earliestDate={earliestDate}
+            />
+          }
+        />
       </Route>
     </Routes>
   );
-
-  // <div className="App">
-  //   {isEmpty(username) && <Notice />}
-  //   <header>
-  //     <div className="title">
-  //       <FontAwesomeIcon className="icon" icon={faTwitter} />
-  //       <h1>Tweet Getter</h1>
-  //     </div>
-  //     <div className="toolbox">
-  //       <form className="toolbox__form" onSubmit={(e) => getRecent(e)}>
-  //         <label>
-  //           User name:
-  //           <input
-  //             type="text"
-  //             value={username}
-  //             onChange={(e) => setUsername(e.target.value)}
-  //           />
-  //           <button disabled={isEmpty(username)}>Get tweets</button>
-  //         </label>
-  //       </form>
-  //       <button type="button" onClick={clearAll}>
-  //         Clear
-  //       </button>
-  //     </div>
-  //   </header>
-  //   {!scoredData ? (
-  //     <main>{username ? <span>No tweets found.</span> : ""}</main>
-  //   ) : (
-  //     <main>
-  //       <h2>Overall Sentiment</h2>
-  //       <Analysis scoredData={scoredData} />
-  //       <SortAndFilter
-  //         sortCat={sortCat}
-  //         setSortCat={setSortCat}
-  //         scoredData={scoredData}
-  //         setScoredData={setScoredData}
-  //       />
-  //       <h2 className="summary">
-  //         <span className="Tweet__count">{scoredData.length}</span> Tweets*
-  //         over the last 30 days to current local time{" "}
-  //         {new Date().toGMTString()}
-  //       </h2>
-  //       <ol>
-  //         {scoredData.map((tweet) => (
-  //           <Tweet {...tweet} />
-  //         ))}
-  //       </ol>
-  //     </main>
-  //   )}
-  //   <footer>
-  //     <p>
-  //       *Only English-language Tweets are included. Notice some of the strange
-  //       sentiment assessments. Retweets ('RT') are currently included.
-  //     </p>
-  //     <p>
-  //       LCM |{" "}
-  //       <a href="https://github.com/h-yung/tweet-getter-analyzer">
-  //         On GitHub
-  //       </a>
-  //     </p>
-  //   </footer>
-  // </div>
-  // );
 }
 
 export default App;

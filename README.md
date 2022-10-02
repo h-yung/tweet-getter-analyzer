@@ -1,6 +1,6 @@
 # Tweet sentiment analyzer
 
-Retrieve latest English-language tweets of public figures in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). 
+Retrieve latest English-language tweets of public figures in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default).
 
 This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
 
@@ -37,29 +37,28 @@ It's interesting what gets categorized as positive - the starting thresholds pro
 **Comparative cheer** (working title)
 
 _draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
+
 - Visualization library TBD. Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
 - legend showing unique marker matched to each username.
 - likely involving object consisting of { username: 'twitter handle', tweets: scoredData } where scoredData is the array currently rendered of the retrieved tweets.
 - need to filter out the pure RTs (indicated by text opener "RT")
 - 100% client side ops, no persisting data, for simplicity
 - UI: button to "save" user and data into the array
-- separate page appears? or just component within same overall? 
+- separate page appears? or just component within same overall?
   - maybe visualization module when enabled will hide the tweet list
-  - Using react router might end up simpler after all: 
-     - common to all: header with search term entry
-     - component: Nothing to show, conditional based on username
-     - component: Full tweet list of active /last searched username, can be cleared*
-     - component: visualization of sentiment vs. last 30 days of the saved users
- *current draft approach does not allow removal of any users added for comparison. 
- - UI could/should include a list of the usernames included and in their assigned color code
- - UI should allow for removal of particular username (executed with splice)
- - this is a bit similar to the "compare school rankings" type function
- 
+  - Using react router might end up simpler after all: - common to all: header with search term entry - component: Nothing to show, conditional based on username - component: Full tweet list of active /last searched username, can be cleared* - component: visualization of sentiment vs. last 30 days of the saved users
+    *current draft approach does not allow removal of any users added for comparison.
+- UI could/should include a list of the usernames included and in their assigned color code
+- UI should allow for removal of particular username (executed with splice)
+- this is a bit similar to the "compare school rankings" type function
+
 Nice to haves
+
 - visual neutral threshold line indicator as well
 - tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
 
 Other:
+
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
   - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
   - Of course, this also assumes they tweet about relevant topics generally and are eyeballed by people already concerned with such topics (a pleasant "Happy holiday" or "On this day" is not nearly as relevant to 100% audience/followers as a note on a broader political situation, or similarly, a local holiday remark might drive greater interest and engagement from local audience that could overshadow decreased interest abroad... etc.)
@@ -74,11 +73,13 @@ Other:
 - [x] Finish sentiment analysis piece.
   - Fix CORS issue with SA temp: This disappeared just as suddenly as it occurred.
   - Rewrite for text array and passing tweets array.
-- [x] Fix sorting (currently a cheap workaround). 
-- [x] Handle user search error: user not found or suspended. 
+- [x] Fix sorting (currently a cheap workaround).
+- [x] Handle user search error: user not found or suspended.
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
 - [ ] Make analysis output more visual.
+  - [ ] Debug strange axes scales.
+  - [ ] Fix tooltip width.
 - [ ] Refactor to use react router and make app more modular. **this second**
 - [ ] Set up sample data (~30 posts or more) to avoid hitting API too much. **this first**
 
@@ -96,6 +97,7 @@ Other:
 - ["Platform node has already been set. Overwriting the platform with…cpu backend was already registered"](https://discuss.tensorflow.org/t/platform-node-has-already-been-set-overwriting-the-platform-with-cpu-backend-was-already-registered/4978)
 - Tinkering too long = CORS problems start up again? ....
 - Would be good to finish learning Python!
+- CanvasJS for React: If there is only 1 data series, it bewilderingly displays each point with a different color. If there are >=2 data series, each data series receives a consistent color treatment.
 
 ## Resources and reference
 

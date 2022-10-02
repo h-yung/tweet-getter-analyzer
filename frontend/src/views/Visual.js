@@ -1,21 +1,23 @@
 import { NavLink } from "react-router-dom";
-export default function Visual({ selected }) {
+import Chart from "../components/Chart";
+
+export default function Visual({ selected, setSelected, earliestDate }) {
   return (
     <>
       <NavLink to="/" className="NavLink">
         Go back
       </NavLink>
+      {selected && (
+        <button type="button" onClick={() => setSelected("")}>
+          Remove all sets
+        </button>
+      )}
       {!selected ? (
         <span>No data in the set.</span>
       ) : (
-        <>
-          <span>Placeholder, in set:</span>
-          <ol>
-            {selected.map((acct) => (
-              <li key={selected.indexOf(acct)}>{acct.username}</li>
-            ))}
-          </ol>
-        </>
+        <div className="Chart__wrapper">
+          <Chart selected={selected} earliestDate={earliestDate} />
+        </div>
       )}
     </>
   );
