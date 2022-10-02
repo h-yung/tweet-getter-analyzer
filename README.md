@@ -8,7 +8,7 @@ This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-ap
 
 **Current:**
 
-![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480844-9913a2d2-dccf-403d-9bb7-8caf88818d63.png)
+![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480968-e2f51b98-765a-4830-a3b0-350acfaed836.png)
 
 (I forgot I was going to try using a CSS framework/component library here.)
 
