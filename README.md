@@ -78,7 +78,7 @@ Other:
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
 - [ ] Make analysis output more visual.
-- [ ] Refactor to use react router and make app more modular.
+- [ ] Refactor to use react router and make app more modular. **this second**
 - [ ] Set up sample data (~30 posts or more) to avoid hitting API too much. **this first**
 
 ## Setup notes for development
