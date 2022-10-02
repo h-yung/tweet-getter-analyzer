@@ -47,7 +47,7 @@ It's interesting what gets categorized as positive - the starting thresholds pro
   - Fix CORS issue with SA temp: This disappeared just as suddenly as it occurred.
   - Rewrite for text array and passing tweets array.
 - [x] Fix sorting (currently a cheap workaround). 
-- [x] Handle user search error. 
+- [x] Handle user search error: user not found or suspended. 
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
 - [ ] Make analysis output more visual.
