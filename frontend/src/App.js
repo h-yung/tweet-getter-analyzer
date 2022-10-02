@@ -11,15 +11,16 @@ import { username1, tweetSet_1 } from "./api/sample_extended";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import Tweet from "./components/Tweet";
 import Notice from "./components/Notice";
 import Analysis from "./components/Analysis";
 import SortAndFilter from "./components/SortAndFilter";
 
 function App() {
-  const [username, setUsername] = useState(""); //currently id
+  const [username, setUsername] = useState(username1); //replace
   const [tweets, setTweets] = useState(""); //cannot provide as empty array
 
-  const [scoredData, setScoredData] = useState("");
+  const [scoredData, setScoredData] = useState(tweetSet_1); //replace
   const [sortCat, setSortCat] = useState("created_at");
 
   // const [sentiment, setSentiment] = useState('');
@@ -95,27 +96,9 @@ function App() {
             {new Date().toGMTString()}
           </h2>
           <ol>
-            {scoredData.map(
-              ({ id, text, created_at, public_metrics, sentiment }) => (
-                <li
-                  key={id}
-                  className={`Tweet_single ${
-                    sentiment === "positive"
-                      ? "mark__pos"
-                      : sentiment === "negative"
-                      ? "mark__neg"
-                      : "mark__neut"
-                  }`}
-                >
-                  <span>{text}</span>
-                  <ul className="Tweet_metadata">
-                    <li>Date created: {new Date(created_at).toGMTString()}</li>
-                    <li>Quoted {public_metrics.quote_count}x</li>
-                    <li>Retweeted {public_metrics.retweet_count}x</li>
-                  </ul>
-                </li>
-              )
-            )}
+            {scoredData.map((tweet) => (
+              <Tweet {...tweet} />
+            ))}
           </ol>
         </main>
       )}
