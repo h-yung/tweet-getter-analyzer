@@ -7,8 +7,6 @@ import { getEngOnly } from "./utils/report";
 import { getAnalysis } from "./api/sentiment";
 import { ratedEach } from "./utils/report";
 
-import { username1, tweetSet_1 } from "./api/sample_extended";
-
 // import { filteredBySentiment } from "./utils/sortAndFilterLogic";
 
 import Layout from "./views/Layout";
@@ -16,10 +14,10 @@ import Home from "./views/Home";
 import Visual from "./views/Visual";
 
 function App() {
-  const [username, setUsername] = useState(username1); //replace
+  const [username, setUsername] = useState("");
   const [tweets, setTweets] = useState(""); //cannot provide as empty array
 
-  const [scoredData, setScoredData] = useState(tweetSet_1); //replace
+  const [scoredData, setScoredData] = useState("");
   const [sortCat, setSortCat] = useState("created_at");
 
   //for visual

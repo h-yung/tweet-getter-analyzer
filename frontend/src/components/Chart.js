@@ -103,7 +103,7 @@ export default function Chart({ selected, setSelected, earliestDate }) {
             className="button__removeAll"
             onClick={() => setSelected("")}
           >
-            Remove all sets
+            Clear set
           </button>
           <div className="Chart__wrapper">
             <CanvasJSChart
