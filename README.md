@@ -1,6 +1,8 @@
 # Tweet sentiment analyzer
 
-Retrieve latest English-language tweets of public figures in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). 
+Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle).
+- Empty search input (no user name provided) is flagged with a notice at the top; submit button is also disabled until input is provided.
+- The comparative sentiment view prevents users from adding of the same user to the visualization set.
 
 This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs a lot of work. Requests are routed via a server so as to protect tokens/keys/secrets. 
 
@@ -14,7 +16,11 @@ This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-ap
 
 ## Run
 
-Not yet deployed, so you will need to set up a project and app on the Twitter Developer Platform and add a **bearer token** as an environment variable for authorization.
+Not yet deployed, so you will need to first set up a project and app on the [Twitter Developer Platform](https://developer.twitter.com/en/docs/apps/overview) and add a **bearer token** as an environment variable for authorization. After this prework:
+
+Clone this repo;
+
+Create an `.env` file inside backend/config, and add your bearer token there as BEARER_TOKEN.
 
 Start the server in one terminal:
 
