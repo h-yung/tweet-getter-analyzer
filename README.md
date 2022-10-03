@@ -36,7 +36,7 @@ npm start
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
 
-**Comparative cheer** (working title) | **EDIT: v1 mostly done.**
+**Provide comparative visual | v1 mostly done.**
 
 _draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
 
@@ -58,14 +58,18 @@ _draft_: Allow users to save the set of tweets and username to an array that the
 Nice to haves
 
 - visual neutral threshold line indicator as well
-- tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
+- (to adjust existing) tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
 
-Other:
+**Model retraining**
+There are many problems with the model and how it is categorizing sentiment.
+
+This will involve either finding a better baseline model and/or retraining and then updating thresholds... A more govt/politics/international baseline model? Most resources along these lines will be in Python.
+
+**Backlog:**
 
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
   - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
   - Of course, this also assumes they tweet about relevant topics generally and are eyeballed by people already concerned with such topics (a pleasant "Happy holiday" or "On this day" is not nearly as relevant to 100% audience/followers as a note on a broader political situation, or similarly, a local holiday remark might drive greater interest and engagement from local audience that could overshadow decreased interest abroad... etc.)
-- Update model/thresholds... A more govt/politics/international baseline model? Most resources along these lines will be in Python, so another incentive to keep learning.
 
 ## Progress
 
