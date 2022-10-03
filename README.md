@@ -36,9 +36,8 @@ npm start
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
 
-**Provide comparative visual | v1 mostly done.**
-
-_draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
+### Provide comparative visual 
+v1 mostly done: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
 
 - Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
 - legend showing unique marker matched to each username.
@@ -55,17 +54,17 @@ _draft_: Allow users to save the set of tweets and username to an array that the
 - this is a bit similar to the "compare school rankings" type function
 - Some people tweet multiple times per day - markers end up stacked on top of each other visually.
 
-Nice to haves
+#### Nice to haves
 
 - visual neutral threshold line indicator as well
 - (to adjust existing) tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
 
-**Model retraining**
+### Model retraining
 There are many problems with the model and how it is categorizing sentiment.
 
 This will involve either finding a better baseline model and/or retraining and then updating thresholds... A more govt/politics/international baseline model? Most resources along these lines will be in Python.
 
-**Backlog:**
+### Backlog
 
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
   - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
