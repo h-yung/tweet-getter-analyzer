@@ -1,10 +1,10 @@
 # Tweet sentiment analyzer
 
-Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle).
+Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle). No data persistence is provided.
 - Empty search input (no user name provided) is flagged with a notice at the top; submit button is also disabled until input is provided.
 - The comparative sentiment view prevents users from adding of the same user to the visualization set.
 
-This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs a lot of work. Requests are routed via a server so as to protect tokens/keys/secrets. 
+This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs a lot of work. Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React, CanvasJS used for visualization; comes with basic tooltip.
 
