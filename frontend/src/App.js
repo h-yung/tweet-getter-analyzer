@@ -52,7 +52,7 @@ function App() {
     }
     //prevent duplicates adding
     else if (selected.some((acct) => acct.username === username)) {
-      console.log("already in set");
+      window.alert("User is already in the set.");
       return;
     }
     const toInclude = { username: username, tweets: scoredData };
