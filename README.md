@@ -1,18 +1,26 @@
 # Tweet sentiment analyzer
 
-Retrieve latest English-language tweets of public figures in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default).
+Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle). No data persistence is provided.
+- Empty search input (no user name provided) is flagged with a notice at the top; submit button is also disabled until input is provided.
+- The comparative sentiment view prevents users from adding of the same user to the visualization set.
 
-This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model. Requests are routed via a server so as to protect tokens/keys/secrets.
+This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs a lot of work. Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
 
-**Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React.
+**Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React, CanvasJS used for visualization; comes with basic tooltip.
 
-![tweet_getter_r3](https://user-images.githubusercontent.com/102257735/193434514-e2dd5856-73b4-4196-a1ac-58da67ec120a.png)
+**Current:**
+
+![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480968-e2f51b98-765a-4830-a3b0-350acfaed836.png)
 
 (I forgot I was going to try using a CSS framework/component library here.)
 
 ## Run
 
-Not yet deployed, so you will need to set up a project and app on the Twitter Developer Platform and add a **bearer token** as an environment variable for authorization.
+Not yet deployed, so you will need to first set up a project and app on the [Twitter Developer Platform](https://developer.twitter.com/en/docs/apps/overview) and add a **bearer token** as an environment variable for authorization. After this prework:
+
+Clone this repo;
+
+Create an `.env` file inside backend/config, and add your bearer token there as BEARER_TOKEN.
 
 Start the server in one terminal:
 
@@ -34,11 +42,11 @@ npm start
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
 
-**Comparative cheer** (working title)
+### Provide comparative visual 
+#### v1 mostly done
+Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
 
-_draft_: Allow users to save the set of tweets and username to an array that then visualizes sentiment of up to ?? users' tweets across same time period. (Levers could come to include same user, different timeframe, or longer timeframes, etc.)
-
-- Visualization library TBD. Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
+- Current view is scatter plot of sentiment score (0 negative - 1 positive) vs. date (last 30 days).
 - legend showing unique marker matched to each username.
 - likely involving object consisting of { username: 'twitter handle', tweets: scoredData } where scoredData is the array currently rendered of the retrieved tweets.
 - need to filter out the pure RTs (indicated by text opener "RT")
@@ -53,17 +61,21 @@ _draft_: Allow users to save the set of tweets and username to an array that the
 - this is a bit similar to the "compare school rankings" type function
 - Some people tweet multiple times per day - markers end up stacked on top of each other visually.
 
-Nice to haves
+#### Nice to haves
 
 - visual neutral threshold line indicator as well
-- tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
+- (to adjust existing) tooltip on hover over data point, providing the tweet text; aria-label? of content on click of the data point
 
-Other:
+### Model retraining
+There are many problems with the model and how it is categorizing sentiment.
+
+This will involve either finding a better baseline model and/or retraining and then updating thresholds... A more govt/politics/international baseline model? Most resources along these lines will be in Python.
+
+### Backlog
 
 - Compare sentiment vs. engagement (e.g., for a particular figure, over time, is there correlation between what sentiment their tweets are encoded as and engagement rate, and if so, does that person respond by adapting how they frame their tweets accordingly?)
   - Rather arbitrarily, I've decided retweets and quotes are higher-effort engagement, though they could be done for oppositional purposes (mockery, evidence of contrary opinion, etc.)
   - Of course, this also assumes they tweet about relevant topics generally and are eyeballed by people already concerned with such topics (a pleasant "Happy holiday" or "On this day" is not nearly as relevant to 100% audience/followers as a note on a broader political situation, or similarly, a local holiday remark might drive greater interest and engagement from local audience that could overshadow decreased interest abroad... etc.)
-- Update model/thresholds... A more govt/politics/international baseline model? Most resources along these lines will be in Python, so another incentive to keep learning.
 
 ## Progress
 
@@ -78,12 +90,11 @@ Other:
 - [x] Handle user search error: user not found or suspended.
 - [x] Format analysis outputs.
 - [ ] Figure out deployment.
-- [ ] Make analysis output more visual.
-  - [ ] Debug strange axes scales.
-  - [ ] Fix tooltip width.
+- [x] Make analysis output more visual. 
+  - [ ] Fix tooltip width. _Chart presets make this challenging; currently, tweet is moved to alert on click._
   - [x] Change shape of marker indicators
-- [ ] Refactor to use react router and make app more modular.
-- [ ] Debug display logic and chart wonkiness.
+- [x] Refactor to use react router and make app more modular. Could do more...
+- [ ] PRIORITY: Debug display logic and chart wonkiness. **This is more of the actual conversion for display.**
 - [x] Set up sample data (~30 posts or more) to avoid hitting API too much. **now obsolete**
 
 ## Setup notes for development
