@@ -3,20 +3,23 @@
 Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle). No data persistence is provided.
 - Empty search input (no user name provided) is flagged with a notice at the top; submit button is also disabled until input is provided.
 - The comparative sentiment view prevents the adding of the same user to the visualization set.
+- Currently front and back end deployed separately ([Netlify](netlify.com/) and [Railway](https://railway.app/) free tier, pretty painless).
 
-This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs a lot of work. Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
+This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs **a lot** of work. Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React, CanvasJS used for visualization; comes with basic tooltip.
+
+## Live here: https://tweet-sentiment-analyzer.netlify.app/
 
 **Current:**
 
 ![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480968-e2f51b98-765a-4830-a3b0-350acfaed836.png)
 
-(I forgot I was going to try using a CSS framework/component library here.)
+(I forgot I was going to try using a CSS framework/component library.)
 
-## Run
+## Run your own copy
 
-Not yet deployed, so you will need to first set up a project and app on the [Twitter Developer Platform](https://developer.twitter.com/en/docs/apps/overview) and add a **bearer token** as an environment variable for authorization. After this prework:
+If you want to make your own copy, you will need to first set up a project and app on the [Twitter Developer Platform](https://developer.twitter.com/en/docs/apps/overview) and add a **bearer token** as an environment variable for authorization. After this prework:
 
 Clone this repo;
 
@@ -96,6 +99,7 @@ This will involve either finding a better baseline model and/or retraining and t
 - [x] Refactor to use react router and make app more modular. Could do more...
 - [ ] PRIORITY: Debug display logic and chart wonkiness. **This is more of the actual conversion for display.**
 - [x] Set up sample data (~30 posts or more) to avoid hitting API too much. **now obsolete**
+- [x] Deployed!
 
 ## Setup notes for development
 
