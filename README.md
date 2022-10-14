@@ -94,14 +94,13 @@ This will involve either finding a better baseline model and/or retraining and t
 - [x] Fix sorting (currently a cheap workaround).
 - [x] Handle user search error: user not found or suspended.
 - [x] Format analysis outputs.
-- [ ] Figure out deployment.
+- [x] Figure out deployment. **Deployed!**
 - [x] Make analysis output more visual. 
   - [ ] Fix tooltip width. _Chart presets make this challenging; currently, tweet is moved to alert on click._
   - [x] Change shape of marker indicators
 - [x] Refactor to use react router and make app more modular. Could do more...
 - [ ] PRIORITY: Debug display logic and chart wonkiness. **This is more of the actual conversion for display.**
 - [x] Set up sample data (~30 posts or more) to avoid hitting API too much. **now obsolete**
-- [x] Deployed!
 
 ## Setup notes for development
 
