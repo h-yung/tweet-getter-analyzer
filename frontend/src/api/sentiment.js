@@ -1,3 +1,5 @@
+import { API_URL } from "./twitter";
+
 //get sentiment analysis
 export const getAnalysis = async (textObj) => {
   const options = {
@@ -11,7 +13,7 @@ export const getAnalysis = async (textObj) => {
   };
   // console.log(options)
   try {
-    const response = await fetch(`http://localhost:3001/analyze`, options);
+    const response = await fetch(`${API_URL}/analyze`, options);
     const data = await response.json();
     return data;
     //this returns:
