@@ -1,4 +1,4 @@
-/*! For license information please see main.f89e7299.js.LICENSE.txt */
+/*! For license information please see main.8be2da42.js.LICENSE.txt */
 !(function () {
   var t = {
       646: function (t, e) {
@@ -39137,7 +39137,14 @@
                   case 0:
                     return (
                       (t.next = 2),
-                      fetch("http://localhost:3001/user/".concat(e))
+                      fetch(
+                        ""
+                          .concat(
+                            "https://tweet-sentiment-analyzer.up.railway.app",
+                            "/user/"
+                          )
+                          .concat(e)
+                      )
                     );
                   case 2:
                     return (i = t.sent), (t.next = 5), i.json();
@@ -43192,4 +43199,4 @@
         Yn();
     })();
 })();
-//# sourceMappingURL=main.f89e7299.js.map
+//# sourceMappingURL=main.8be2da42.js.map
