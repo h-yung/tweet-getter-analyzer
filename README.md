@@ -5,7 +5,7 @@ Retrieve latest public English-language tweets of users by user name/Twitter han
 - The comparative sentiment view prevents the adding of the same user to the visualization set.
 - Currently front and back end deployed separately ([Netlify](netlify.com/) and [Railway](https://railway.app/) free tier, pretty painless).
 
-This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs **a lot** of work. Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
+This app uses [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api) and a pretrained TensorFlow model that needs **a lot** of work (i.e., accuracy, judgment, etc. is all very bizarre right now). Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
 
 **Tech used**: Node, Express, vaguely MVC architecture (but not quite), and node-fetch for http reqs from server (yep, not axios). Front end built with React, CanvasJS used for visualization; comes with basic tooltip.
 
