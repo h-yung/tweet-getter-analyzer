@@ -20,30 +20,6 @@ Currently, front and back end are deployed separately ([Netlify](netlify.com/) a
 ![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480968-e2f51b98-765a-4830-a3b0-350acfaed836.png)
 
 
-## Run your own copy
-
-If you want to make your own copy, you will need to first set up a project and app on the [Twitter Developer Platform](https://developer.twitter.com/en/docs/apps/overview) and add a **bearer token** as an environment variable for authorization. After this prework:
-
-Clone this repo;
-
-Create an `.env` file inside backend/config, and add your bearer token there as BEARER_TOKEN.
-
-Start the server in one terminal:
-
-```
-cd backend
-npm install
-npm start
-```
-
-Start the web app in a second terminal:
-
-```
-cd frontend
-npm install
-npm start
-```
-
 ## Optimizations
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
@@ -107,6 +83,31 @@ This will involve either finding a better baseline model and/or retraining and t
 
 ## Setup notes for development
 
+### Run your own copy
+
+If you want to make your own copy, you will need to first set up a project and app on the [Twitter Developer Platform](https://developer.twitter.com/en/docs/apps/overview) and add a **bearer token** as an environment variable for authorization. After this prework:
+
+Clone this repo;
+
+Create an `.env` file inside backend/config, and add your bearer token there as BEARER_TOKEN.
+
+Start the server in one terminal:
+
+```
+cd backend
+npm install
+npm start
+```
+
+Start the web app in a second terminal:
+
+```
+cd frontend
+npm install
+npm start
+```
+
+### Reminders
 1. npm install your: prettier pretty-quick husky
 2. husky: [you are likely on npm version > 7](https://dev.to/maithanhdanh/configuration-for-husky-pre-commit-1fo5)
 3. pretty-quick: unlike what the docs say, you need `npx` in the pre-commit hook for it to run properly using husky: `npx pretty-quick --staged`
