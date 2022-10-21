@@ -13,6 +13,7 @@ Currently, front and back end are deployed separately ([Netlify](netlify.com/) a
 - Front end built with React, CanvasJS used for visualization; comes with basic tooltip. Forgot I was going to try using a CSS framework/component library...
 
 ## Live here: https://tweet-sentiment-analyzer.netlify.app/
+(Give the search a few seconds...)
 
 **Current:**
 
@@ -46,6 +47,8 @@ npm start
 ## Optimizations
 
 It's interesting what gets categorized as positive - the starting thresholds probably need some tweaking (or better yet, eventually changing/training the model, which was based off...IMDB reviews and probably are missing quite a few salient keywords).
+
+It's also quite slow to return search results - I wouldn't blame Twitter API necessarily. Combo of Twitter + Railway free tier + suboptimal code? One of these areas is addressable for free.
 
 ### Provide comparative visual 
 #### v1 mostly done
