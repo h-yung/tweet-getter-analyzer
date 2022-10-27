@@ -1,10 +1,5 @@
 # Tweet sentiment analyzer
 Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle). No data persistence is provided.
-- Empty search input (no user name provided) is flagged with a notice at the top; submit button is also disabled until input is provided.
-- The comparative sentiment view prevents the adding of the same user to the visualization set.
-- Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
-
-Currently, front and back end are deployed separately ([Netlify](netlify.com/) and [Railway](https://railway.app/) free tier, pretty painless).
 
 **Tech used**: 
 - [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api)
@@ -15,10 +10,13 @@ Currently, front and back end are deployed separately ([Netlify](netlify.com/) a
 ## Live here: https://tweet-sentiment-analyzer.netlify.app/
 (Give the search a few seconds...)
 
-**Current:**
-
 ![tweet_getter_r4](https://user-images.githubusercontent.com/102257735/193480968-e2f51b98-765a-4830-a3b0-350acfaed836.png)
 
+- Empty search input (no user name provided) is flagged with a notice at the top; submit button is also disabled until input is provided.
+- The comparative sentiment view prevents the adding of the same user to the visualization set.
+- Requests are routed via a server so as to protect tokens/keys/secrets. Analysis/report functionality is implemented entirely client side.
+
+Currently, front and back end are deployed separately ([Netlify](netlify.com/) and [Railway](https://railway.app/) free tier, pretty painless).
 
 ## Optimizations
 
