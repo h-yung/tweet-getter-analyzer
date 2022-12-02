@@ -2,8 +2,8 @@
 Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle). No data persistence is provided.
 
 _Warning/update 12/2022_: Noticing CORS issues suddenly blocking app functionality where it was just slow before. 
-1. The small backend may be temporarily disabled because of Railway free tier hosting limits.
-2. No idea what else is up with Twitter these days... free API users probably low on the priority list.
+1. More likely, my backend has run out of free Railway time... forever! [Read sad tidings here](https://docs.railway.app/reference/plans#execution-time-limit): "Railway limits free accounts to 500 hours of continuous uptime."
+2. No idea what else is up with Twitter these days... but it's actually probably not their fault(!).
 
 **Tech used**: 
 - [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api)
