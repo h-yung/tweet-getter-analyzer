@@ -1,7 +1,9 @@
 # Tweet sentiment analyzer
 Retrieve latest public English-language tweets of users by user name/Twitter handle in the last 30 days and analyze sentiment. Sort by number of quotes, retweets, or recency (default). Compare sentiment scores across different users with up to four unique marker/shape indicators (after which the shapes recycle). No data persistence is provided.
 
-Warning/update 12/2022: Noticing CORS issues suddenly blocking app functionality where it was just slow before. No idea what else is up with Twitter these days... free API users probably low on the priority list.
+_Warning/update 12/2022_: Noticing CORS issues suddenly blocking app functionality where it was just slow before. 
+1. The small backend may be temporarily disabled because of Railway free tier hosting limits.
+2. No idea what else is up with Twitter these days... free API users probably low on the priority list.
 
 **Tech used**: 
 - [Twitter API v.2](https://developer.twitter.com/en/docs/twitter-api)
